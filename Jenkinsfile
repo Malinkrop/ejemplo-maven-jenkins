@@ -1,47 +1,40 @@
-import groovy.json.JsonSlurperClassic
-def jsonParse(def json) {
-    new groovy.json.JsonSlurperClassic().parseText(json)
-}
 pipeline {
     agent any
+
     stages {
-        stage("Paso 1: Saludar"){
+        stage('Hello') {
             steps {
-                script {
-                sh "echo 'Hello, World Usach!'"
-                }
+                echo 'Hello World'
             }
         }
-        stage("Paso 2: Crear Archivo"){
+        stage('Step 1') {
             steps {
-                script {
-                sh "echo 'Hello, World Usach!!' > hello-devops-usach-.txt"
-                }
+                echo 'Step 1'
+                sh "uname"
             }
         }
-        stage("Paso 3: Guardar Archivo"){
+        stage('Step 2') {
             steps {
-                script {
-                sh "echo 'Persisitir Archivo!'"
-                }
-            }
-            post {
-                //record the test results and archive the jar file.
-                success {
-                    archiveArtifacts(artifacts:'**/*.txt', followSymlinks:false)
-                }
+                echo 'Step 2'
+                sh "java --version"
             }
         }
-    }
-    post {
-        always {
-            sh "echo 'fase always executed post'"
+        stage('Step 3') {
+            steps {
+                echo 'Step 3'
+                sh "ps -aux"
+            }
         }
-        success {
-            sh "echo 'fase success'"
+        stage('Step 4') {
+            steps {
+                echo 'Step 4'
+                sh "pwd"
+            }
         }
-        failure {
-            sh "echo 'fase failure'"
+        stage('Good Bye') {
+            steps {
+                echo 'Good Bye Usach Ceres'
+            }
         }
     }
 }
