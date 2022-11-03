@@ -32,15 +32,15 @@ pipeline {
                 }
             }
         }
-        stage("Paso 4: Run .Jar"){
-            steps {
-                script {
-                sh "echo 'Run .Jar!'"
-                // Run Maven on a Unix agent.
-                sh "java -jar build/DevOpsUsach2020-0.0.1.jar"
-                }
-            }
-        }
+        // stage("Paso 4: Run .Jar"){
+        //     steps {
+        //         script {
+        //         sh "echo 'Run .Jar!'"
+        //         // Run Maven on a Unix agent.
+        //         sh "java -jar build/DevOpsUsach2020-0.0.1.jar"
+        //         }
+        //     }
+        // }
     }
     post {
         always {
