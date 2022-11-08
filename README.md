@@ -66,7 +66,4 @@ docker run -it --rm -v $(pwd):/code --workdir /code maven mvn clean package -e
 ### Run Jar
 docker run -it --rm -p 8081:8081  -v $(pwd):/code --workdir /code maven mvn spring-boot:run
 ```
-
-### Mod readmie :) modmodmod
-#### Mod para Veificar push V2 Extra
-### Mod V3 para verificaion
+### Mod V4 para verificaion Extra
