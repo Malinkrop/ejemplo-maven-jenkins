@@ -42,7 +42,7 @@ pipeline {
             }
         }
 
-        stage("Paso 4: Test Newman"){
+        stage("Paso 4: Pruebas API con Newman"){
             steps {
                 script{
                     sh "newman run ./ejemplo-maven.postman_collection.json"
@@ -106,6 +106,15 @@ pipeline {
                 }
             }
         }
+
+        stage("Paso 4: Testear Artefacto con Newman"){
+            steps {
+                script{
+                    sh "newman run ./ejemplo-maven.postman_collection.json"
+                }
+            }
+        }
+
         stage("Paso 10:Detener Atefacto jar en Jenkins server"){
             steps {
                 sh '''
